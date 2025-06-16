@@ -1,0 +1,14 @@
+{
+  "name": "block-js",
+  "version": "1.0.0",
+  "description": "JavaScript版爆裂ブロック崩し",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx live-server --port=3000 --host=localhost --open=/index.html --watch=.",
+    "build": "mkdir -p dist && npx terser bakuretublock.js -o dist/bakuretublock.min.js -c -m --comments false && cp enchant.min.js dist/ && cp *.png *.jpg dist/ && sed 's/bakuretublock\\.js/bakuretublock.min.js/' index.html > dist/index.html"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "terser": "^5.19.2"
+  }
+}
