@@ -1,10 +1,15 @@
 # 脱衣ブロック崩し「爆裂ブロック（Bakuretu Block）」
 
+![タイトル画像](img/title.jpg)
+
 1999年に作成した Java Applet版「脱衣ブロック崩し」を JavaScript でリメイクした、シンプルな脱衣ブロック崩しゲームです。
+
+PC、スマートフォンの両方でゲームが遊べます。
+反射パネルのちょうど中心にボールを当てると、ボールが赤くなり「爆裂貫通弾」となります。（当時のApplet版の仕様そのまま）
 
 ↓画像クリックでゲーム開始
 
-[![タイトル画像](img/game01.png)](https://bakuretuken.github.io/bakuretu-block/)
+[![ゲーム開始画像](img/game01.png)](https://bakuretuken.github.io/bakuretu-block/)
 
 ## 概要
 - PC・スマートフォン両対応
