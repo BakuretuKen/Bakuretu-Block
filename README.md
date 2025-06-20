@@ -7,9 +7,9 @@
 PC、スマートフォンの両方でゲームが遊べます。
 反射パネルのちょうど中心にボールを当てると、ボールが赤くなり「爆裂貫通弾」となります。（当時のApplet版の仕様そのまま）
 
-**[→ クリックでゲーム開始](https://bakuretuken.github.io/bakuretu-block/)**
+**[→ クリックでゲーム開始](https://bakuretuken.github.io/bakuretu-block/)**  
 
-↓画像クリックでゲーム開始
+↓画像クリックでゲーム開始  
 [![ゲーム開始画像](img/game01.png)](https://bakuretuken.github.io/bakuretu-block/)
 
 ## 概要
