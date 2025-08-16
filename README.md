@@ -26,6 +26,7 @@ PC、スマートフォンの両方でゲームが遊べます。
 | ファイル名                | 説明                       |
 |---------------------------|----------------------------|
 | bakuretublock.js          | ゲーム本体                 |
+| bakuretublock001.min.js   | ゲーム本体(圧縮版)          |
 | enchant.min.js            | enchant.jsゲームエンジン   |
 | index.html                | ゲーム起動用HTML           |
 | block_icon_boll.png       | ボール画像（44x22）        |
@@ -53,6 +54,49 @@ var BLOCK_BAR_MARGIN_BOTTOM = 80;   // パネルの下マージン
 var BLOCK_GAME_BLOCK_SIZE = 32;     // ブロックサイズ（16 or 32）
 var BLOCK_GAME_MIN_BLOCK_PIXEL = 24;// ブロック化判定ピクセル数
 </script>
+```
+
+### 画像を変更する方法
+
+画像は背景画像、勝利画像が JPEG フォーメットで、それ以外は  PNG フォーマットです。<br />
+自分で画像を用意する場合は同じファイルで、同じ画像サイズでファイルを用意してください。<br />
+ブロック画像は「透明PNG」で用意してください。透明部分はブロックになりません。
+
+画面の縦横サイズは設定した「ブロックサイズ」の倍数にしてください。
+
+```js
+var BLOCK_GAME_BLOCK_SIZE = 32;     // ブロックサイズ（16 or 32）
+```
+
+### 画像サイズを変更する場合
+
+`index.html`で以下の変数を変更
+```js
+var BLOCK_GAME_WIDTH = 480;         // ゲーム画面幅
+var BLOCK_GAME_HEIGHT = 640;        // ゲーム画面高さ
+```
+
+`index.html`で以下のJavaScriptで出力しているHTMLを変更
+```html
+document.write('<div id="enchant-stage" style="width:480px; height:640px; cursor:hand; margin: 0 auto;"></div>');
+```
+
+### ゲームの改造
+
+`bakuretublock.js`を変更してください。<br />
+`enchant.js`というゲームエンジンを使用しています。
+
+手元のPCでWEBサーバを立ち上げるなどして、サーバ経由で動作確認を行ってください。<br />
+ローカルでWEBサーバ起動可能な開発プログラム言語もあります。
+
+```python
+# python3
+python -m http.server 8000
+```
+
+```php
+# PHP
+php -S localhost:8000
 ```
 
 ## 注意事項
