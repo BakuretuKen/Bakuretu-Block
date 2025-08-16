@@ -43,7 +43,7 @@ PC、スマートフォンの両方でゲームが遊べます。
 3. 画像を差し替える場合は、同じファイル名・サイズで用意
 
 ## ゲーム設定（カスタマイズ）
-`index.html`で以下の変数を上書き可能
+`bakuretublock.js`で以下の変数を上書き可能
 ```js
 <script>
 var BLOCK_GAME_WIDTH = 480;         // ゲーム画面幅
@@ -70,7 +70,7 @@ var BLOCK_GAME_BLOCK_SIZE = 32;     // ブロックサイズ（16 or 32）
 
 ### 画像サイズを変更する場合
 
-`index.html`で以下の変数を変更
+`bakuretublock.js`で以下の変数を変更
 ```js
 var BLOCK_GAME_WIDTH = 480;         // ゲーム画面幅
 var BLOCK_GAME_HEIGHT = 640;        // ゲーム画面高さ
