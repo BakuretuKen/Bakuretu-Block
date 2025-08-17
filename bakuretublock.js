@@ -1,14 +1,8 @@
 /**
- * 爆裂ブロック JavaScript版 ver0.01
+ * 爆裂ブロック JavaScript版 ver0.02
+ * https://bakuretuken.com/block/
  */
 
-// Config Init
-if (typeof BLOCK_GAME_WIDTH == 'undefined') var BLOCK_GAME_WIDTH = 480;
-if (typeof BLOCK_GAME_HEIGHT == 'undefined') var BLOCK_GAME_HEIGHT = 640;
-if (typeof BLOCK_GAME_FPS == 'undefined') var BLOCK_GAME_FPS = 24;
-if (typeof BLOCK_GAME_BALL_SPEED == 'undefined') var BLOCK_GAME_BALL_SPEED = 10;
-if (typeof BLOCK_BAR_MARGIN_BOTTOM == 'undefined') var BLOCK_BAR_MARGIN_BOTTOM = 80;
-if (typeof BLOCK_GAME_BLOCK_SIZE == 'undefined') var BLOCK_GAME_BLOCK_SIZE = 32; // 16 or 32
 if (typeof BLOCK_GAME_MIN_BLOCK_PIXEL == 'undefined') {
     if (BLOCK_GAME_BLOCK_SIZE == 32) {
         var BLOCK_GAME_MIN_BLOCK_PIXEL = 24;
@@ -17,6 +11,13 @@ if (typeof BLOCK_GAME_MIN_BLOCK_PIXEL == 'undefined') {
     }
 }
 // console.log("BLOCK_GAME_MIN_BLOCK_PIXEL: "+BLOCK_GAME_MIN_BLOCK_PIXEL);
+
+if (BLOCK_GAME_WIDTH % BLOCK_GAME_BLOCK_SIZE != 0) {
+    alert("BLOCK_GAME_WIDTH is not a multiple of BLOCK_GAME_BLOCK_SIZE");
+}
+if (BLOCK_GAME_HEIGHT % BLOCK_GAME_BLOCK_SIZE != 0) {
+    alert("BLOCK_GAME_HEIGHT is not a multiple of BLOCK_GAME_BLOCK_SIZE");
+}
 
 enchant();
 var game = new Game(BLOCK_GAME_WIDTH, BLOCK_GAME_HEIGHT);
@@ -41,7 +42,6 @@ var blockBase = new Array(BLOCK_GAME_WIDTH / BLOCK_GAME_BLOCK_SIZE);
 for (k = 0; k < blockBase.length; k++) blockBase[k] = new Array(BLOCK_GAME_HEIGHT / BLOCK_GAME_BLOCK_SIZE);
 var blockBaseMaster = new Array(BLOCK_GAME_WIDTH / BLOCK_GAME_BLOCK_SIZE);
 for (k = 0; k < blockBaseMaster.length; k++) blockBaseMaster[k] = new Array(BLOCK_GAME_HEIGHT / BLOCK_GAME_BLOCK_SIZE);
-
 
 // --- ラベル Sprite
 StartLabelSprite = Class.create(Sprite,
@@ -191,7 +191,7 @@ Bomb = Class.create(Sprite,
         if (blockBase[posX][posY]) {
             blockBase[posX][posY] = false;
             blockBaseNum--;
-            console.log("[BakuretuBlock] Block: "+blockBaseNum);
+            // console.log("[BakuretuBlock] Block: "+blockBaseNum);
             drawBackImage(posX, posY);
             if (blockBaseNum == 0) { gameWin(); return false; }
             if (game.bomb.frame == 0) {
@@ -208,7 +208,7 @@ Bomb = Class.create(Sprite,
         if (blockBase[posX][posY]) {
             blockBase[posX][posY] = false;
             blockBaseNum--;
-            console.log("[BakuretuBlock] Block: "+blockBaseNum);
+            // console.log("[BakuretuBlock] Block: "+blockBaseNum);
             drawBackImage(posX, posY);
             if (blockBaseNum == 0) { gameWin(); return false; }
             if (game.bomb.frame == 0) {
@@ -308,7 +308,7 @@ function initGame()
         }
     }
 
-    console.log("[BakuretuBlock] Init Block: "+blockBaseNum);
+    // console.log("[BakuretuBlock] Init Block: "+blockBaseNum);
 
     sf.context.drawImage(imgBack, 0, 0);
     sf.context.drawImage(imgFront, 0, 0);
@@ -387,7 +387,7 @@ function gameRestart()
         }
     }
 
-    console.log("[BakuretuBlock] Restart Block: "+blockBaseNum);
+    // console.log("[BakuretuBlock] Restart Block: "+blockBaseNum);
 
     sf.context.drawImage(imgBack, 0, 0);
     sf.context.drawImage(imgFront, 0, 0);
