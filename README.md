@@ -1,6 +1,6 @@
 # 脱衣ブロック崩し「爆裂ブロック（Bakuretu Block）」
 
-![タイトル画像](img/title.jpg)
+[![タイトル画像](img/title.jpg)](https://bakuretuken.github.io/bakuretu-block/)
 
 1999年に作成した Java Applet版「脱衣ブロック崩し」を JavaScript でリメイクした、シンプルな脱衣ブロック崩しゲームです。
 
@@ -22,6 +22,9 @@ PC、スマートフォンの両方でゲームが遊べます。
 - [公式サンプル・解説ページ](https://bakuretuken.com/block/)
 
 [![ゲーム画像](img/game02.png)](https://bakuretuken.github.io/bakuretu-block/)
+
+[![ゲーム画像](img/game-ani.jpg)](https://bakuretuken.github.io/bakuretu-block-ani/)
+
 
 ## ファイル構成
 
