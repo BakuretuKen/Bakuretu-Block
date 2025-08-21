@@ -361,10 +361,6 @@ function gameWin()
 {
     game.mode = 10; // GAME WIN
 
-    game.restart.frame = 1;
-    game.restart.x = 0;
-    game.restart.y = 0;
-
     // ボールに非表示＆移動量なし
     game.bomb.vy = 0;
     game.bomb.vx = 0;
