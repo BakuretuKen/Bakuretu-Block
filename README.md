@@ -30,8 +30,8 @@ PC、スマートフォンの両方でゲームが遊べます。
 
 | ファイル名                | 説明                       |
 |---------------------------|----------------------------|
-| bakuretublock.js          | ゲーム本体                 |
-| bakuretublock002.min.js   | ゲーム本体(圧縮版)          |
+| bakuretublock003.js          | ゲーム本体                 |
+| bakuretublock003.min.js   | ゲーム本体(圧縮版)          |
 | enchant.min.js            | enchant.jsゲームエンジン   |
 | index.html                | ゲーム起動用HTML           |
 | block_icon_boll.png       | ボール画像（44x22）        |
@@ -74,10 +74,10 @@ var BLOCK_GAME_BLOCK_SIZE = 32; // ブロックのサイズ（16 or 32）
 
 ## ゲームプログラムの改造
 
-`index.html`の読み込みJSを`bakuretublock002.min.js`から下記に変更してください
+`index.html`の読み込みJSを`bakuretublock003.min.js`から下記に変更してください
 
 ```
-<script src="bakuretublock.js"></script>
+<script src="bakuretublock003.js"></script>
 ```
 
 `bakuretublock.js`を変更してください。<br />

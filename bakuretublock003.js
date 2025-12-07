@@ -1,5 +1,5 @@
 /**
- * 爆裂ブロック JavaScript版 ver0.02
+ * 爆裂ブロック JavaScript版 ver0.03
  * https://bakuretuken.com/block/
  */
 
@@ -77,7 +77,7 @@ SpriteScreen = Class.create(Sprite,
     {
         touchPos = e.x;
     },
-    ontouchendt:function(e)
+    ontouchend:function(e)
     {
         touchPos = -1;
     },
@@ -155,26 +155,30 @@ Bomb = Class.create(Sprite,
             game.bar.frame = 1;
             game.bar.time = 3;
             this.oy = BLOCK_GAME_HEIGHT - BLOCK_BAR_MARGIN_BOTTOM - 12;
-            if (game.bar.x + 30 > this.ox) {
-                if (this.vx > 0) {
-                    if (this.vx > 0) this.vx = BLOCK_GAME_BALL_SPEED; else this.vx = -1 * BLOCK_GAME_BALL_SPEED;
-                    if (this.vy > 0) this.vy = BLOCK_GAME_BALL_SPEED; else this.vy = -1 * BLOCK_GAME_BALL_SPEED;
-                } else {
-                    if (this.vx > 0) this.vx = BLOCK_GAME_BALL_SPEED + 3; else this.vx = -1 *( BLOCK_GAME_BALL_SPEED + 3);
-                    if (this.vy > 0) this.vy = BLOCK_GAME_BALL_SPEED - 3; else this.vy = -1 * (BLOCK_GAME_BALL_SPEED - 3);
-                }
+            // バーの左側（30px以内）に当たった場合
+            if (this.ox < game.bar.x + 30) {
+                // 左側に反射させる
+                this.vx = -Math.abs(BLOCK_GAME_BALL_SPEED + 3);
+                this.vy = -Math.abs(BLOCK_GAME_BALL_SPEED - 3);
             }
-            if (game.bar.x + 90 < this.ox) {
-                if (this.vx < 0) {
-                    if (this.vx > 0) this.vx = BLOCK_GAME_BALL_SPEED; else this.vx = -1 * BLOCK_GAME_BALL_SPEED;
-                    if (this.vy > 0) this.vy = BLOCK_GAME_BALL_SPEED; else this.vy = -1 * BLOCK_GAME_BALL_SPEED;
-                } else {
-                    if (this.vx > 0) this.vx = BLOCK_GAME_BALL_SPEED + 3; else this.vx = -1 *( BLOCK_GAME_BALL_SPEED + 3);
-                    if (this.vy > 0) this.vy = BLOCK_GAME_BALL_SPEED - 3; else this.vy = -1 * (BLOCK_GAME_BALL_SPEED - 3);
-                }
+            // バーの右側（90px以降）に当たった場合
+            else if (this.ox > game.bar.x + 90) {
+                // 右側に反射させる
+                this.vx = Math.abs(BLOCK_GAME_BALL_SPEED + 3);
+                this.vy = -Math.abs(BLOCK_GAME_BALL_SPEED - 3);
             }
-            if (game.bar.x + 58 < this.ox && this.ox < game.bar.x + 62) {
+            // バーの中央（58-62px）に当たった場合
+            else if (this.ox >= game.bar.x + 58 && this.ox <= game.bar.x + 62) {
                 game.bomb.frame = 1;
+                // 真上に反射
+                this.vx = (this.vx > 0) ? BLOCK_GAME_BALL_SPEED : -BLOCK_GAME_BALL_SPEED;
+                this.vy = -BLOCK_GAME_BALL_SPEED;
+            }
+            // バーの中央付近（30-90px）に当たった場合
+            else {
+                // 通常の反射
+                this.vx = (this.vx > 0) ? BLOCK_GAME_BALL_SPEED : -BLOCK_GAME_BALL_SPEED;
+                this.vy = -BLOCK_GAME_BALL_SPEED;
             }
         }
 
@@ -342,10 +346,10 @@ function gameStart()
 
 function gameLose()
 {
-    // game.restart.x = (BLOCK_GAME_WIDTH/2) - (game.restart.width/2);
-    // game.restart.y = (BLOCK_GAME_HEIGHT/2) - (game.restart.height/2);
-    game.restart.x = 0;
-    game.restart.y = 0;
+    game.restart.x = (BLOCK_GAME_WIDTH/2) - (game.restart.width/2);
+    game.restart.y = (BLOCK_GAME_HEIGHT/2) - (game.restart.height/2) - 50;
+    // game.restart.x = 0;
+    // game.restart.y = 0;
     game.restart.frame = 1;
 
     // ボールに非表示＆移動量なし
