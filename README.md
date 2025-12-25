@@ -9,5 +9,5 @@
 
 下記のページをご覧ください。
 
-**https://github.com/BakuretuKen/Bakuretu-Block2**
+# [https://github.com/BakuretuKen/Bakuretu-Block2](https://github.com/BakuretuKen/Bakuretu-Block2)
 
